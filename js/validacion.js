@@ -1,8 +1,8 @@
 window.addEventListener('load',function(){
 
-  var cuentas = [{usuario: "mili01gm@gmail.com", password: "ArgosPeru"},
-                 {usuario: "alejvillaobos86@gmail.com", password: "mauriat1"},
-                 {usuario: "natalydv@gmail.com", password: "mundO2711"}];
+  var cuentas = [ {nombre : "Milagros", usuario : "mili01gm@gmail.com", password : "ArgosPeru" },
+                  {nombre : "Alejandro", usuario : "alevillalobos86@gmail.com", password : "mauriat1" },
+                  {nombre : "Naty", usuario : "natalydv@gmail.com", password : "mundO2711" }];
 
   var boton = document.getElementById('ingresa');
   boton.addEventListener('click',function(){
@@ -24,13 +24,34 @@ window.addEventListener('load',function(){
       correctPassword(password.value);
     }
 
-    function correctPassword(param){
-      if(param == ""){
-        spanPass.innerHTML = "El campo de password no puede estar en blanco"
+    function correctPassword(var1,var2){
+      if(var1 < 6){
+        spanPass.innerHTML = "El password debe tener mínimo 6 dígitos"
         return false;}
-      else if(param < 6){
-        spanPass.innerHTML = "Ingrese un password válido"
-        return false;}
+
+      //for(var i in cuentas){
+      //for(var i = 0; i < cuentas.length; i++){
+      cuentas.forEach(function(e){
+        if(var2 != e.usuario && e.password != var1){
+          spanEmail.innerHTML = "Este email no está registrado"
+          spanPass.innerHTML = ""
+          //console.log(e.usuario, e.password);
+          return false;}
+        else if((e.usuario != var2 && e.password == var1)||
+                (e.usuario == var2 && e.password != var1)){
+          spanEmail.innerHTML = ""
+          spanPass.innerHTML = "El password no es correcto"
+          console.log(e.usuario, e.password);
+          return false;}
+        // else if(e.usuario == var2 && e.password != var1){
+        //   spanPass.innerHTML = "El password no es correcto"
+        //   spanEmail.innerHTML = ""
+        //   console.log(e.usuario, e.password);
+        //   return false;}
+        else if(e.usuario == var2 && e.password == var1){
+          window.location = '../index.html'+ "?name=" + e.nombre; }
+      });
+
 
     }
     // if(email.value ){
@@ -54,10 +75,9 @@ window.addEventListener('load',function(){
     }
 
     correctUser(email.value);
-    correctPassword(password.value);
-    //function correctos(email.value,password.value);
+    correctPassword(password.value,email.value);
+    //window.location = '../index.html'
   });
-
 
 
 });
