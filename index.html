@@ -9,17 +9,34 @@
 <body>
   <div class="div-main-container">
     <nav>
-      
+
     </nav>
-    <div class="div-post">
-
-    </div>
+    <div class="div-post" align="center">
+      <form action="">
+        <fieldset >
+          <textarea id="wall-post" rows="5" cols="70"></textarea><br>
+          <div class="post-btns">
+            <select class="opciones">
+              <option id="friends" value="o1">Público</option>
+              <option id="friends" value="o2">Amigos</option>
+            </select>
+            <button class="btn-post" id="post-btn">Publicar</button>
+          </div>
+        </fieldset>
+      </form>
+    </div><br><br>
     <div class="div-wall">
-
+      <div class="wall-btns">
+        <button id="wall-opt-public">Público</button>
+        <button id="wall-opt-frinds">Amigos</button>
+      </div><br>
+      <div class="div-wall">
+        <div class="div-public"></div>
+      </div>
     </div>
 
 
-
+    <script src="js/app.js"></script>
   </div>
 </body>
 </html>
