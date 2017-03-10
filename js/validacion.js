@@ -24,13 +24,28 @@ window.addEventListener('load',function(){
       //correctPassword(password.value);
     }
 
-    function correctPassword(param){
-      if(param == ""){
-        spanPass.innerHTML = "El campo de password no puede estar en blanco"
+    function correctPassword(var1,var2){
+      if(var1 < 6){
+        spanPass.innerHTML = "El password debe tener mínimo 6 dígitos"
         return false;}
-      else if(param < 6){
-        spanPass.innerHTML = "Ingrese un password válido"
-        return false;}
+
+      for(var i in cuentas){
+        if(cuentas[i].usuario != var2 && cuentas[i].password != var1){
+          spanEmail.innerHTML = "Este email no está registrado"
+          spanPass.innerHTML = "Este password no es válido"
+          return false;}
+        else if(cuentas[i].usuario != var2 && cuentas[i].password == var1){
+          spanEmail.innerHTML = "Este email no está registrado"
+          spanPass.innerHTML = ""
+          return false;}
+        else if(cuentas[i].usuario == var2 && cuentas[i].password != var1){
+          spanPass.innerHTML = "El password no es correcto"
+          spanEmail.innerHTML = ""
+          return false;}
+        else if(cuentas[i].usuario == var2 && cuentas[i].password == var1){
+          window.location = '../index.html'}
+      }
+
 
     }
     // if(email.value ){
@@ -47,9 +62,9 @@ window.addEventListener('load',function(){
 
 
     correctUser(email.value);
-    correctPassword(password.value);
+    correctPassword(password.value,email.value);
+    //window.location = '../index.html'
   });
-
 
 
 });
