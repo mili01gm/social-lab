@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SocialLab</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
   <div class="div-main-container">
@@ -14,29 +16,32 @@
     <div class="div-post" align="center">
       <form action="">
         <fieldset >
-          <textarea id="wall-post" rows="5" cols="70"></textarea><br>
+          <textarea class="posted" id="wall-post" rows="5" cols="70"></textarea><br>
           <div class="post-btns">
             <select class="opciones">
-              <option id="friends" value="o1">Público</option>
-              <option id="friends" value="o2">Amigos</option>
+              <option id="friends" value=""></option>
+              <option id="friends" value="1">Público</option>
+              <option id="friends" value="2">Amigos</option>
             </select>
-            <button class="btn-post" id="post-btn">Publicar</button>
+            <button type="submit" class="btn-post" id="post-btn">Publicar</button>
           </div>
         </fieldset>
       </form>
     </div><br><br>
-    <div class="div-wall">
+    <div class="div-wall" align="center">
       <div class="wall-btns">
         <button id="wall-opt-public">Público</button>
-        <button id="wall-opt-frinds">Amigos</button>
+        <button id="wall-opt-friends">Amigos</button>
       </div><br>
-      <div class="div-wall">
+      <section class="resultado" id="resultado">
         <div class="div-public"></div>
-      </div>
+        <div class="div-amigos"></div>
+      </section>
     </div>
 
 
     <script src="js/app.js"></script>
+    <script src="js/funciones.js"></script>
   </div>
 </body>
 </html>

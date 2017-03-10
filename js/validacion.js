@@ -32,22 +32,21 @@ window.addEventListener('load',function(){
       //for(var i in cuentas){
       //for(var i = 0; i < cuentas.length; i++){
       cuentas.forEach(function(e){
-        if(var2 != e.usuario && e.password != var1){
-          spanEmail.innerHTML = "Este email no está registrado"
-          spanPass.innerHTML = ""
+        // if(var2 != e.usuario && var1 != e.password){
+        //   spanEmail.innerHTML = "Este email no está registrado"
+        //   spanPass.innerHTML = ""
+        //   //console.log(e.usuario, e.password);
+        //   return false;}
+        if(e.usuario != var2 && e.password == var1){
+          spanEmail.innerHTML = ""
+          spanPass.innerHTML = "El password no coincide"
           //console.log(e.usuario, e.password);
           return false;}
-        else if((e.usuario != var2 && e.password == var1)||
-                (e.usuario == var2 && e.password != var1)){
-          spanEmail.innerHTML = ""
+        else if(e.usuario == var2 && e.password != var1){
           spanPass.innerHTML = "El password no es correcto"
+          spanEmail.innerHTML = ""
           console.log(e.usuario, e.password);
           return false;}
-        // else if(e.usuario == var2 && e.password != var1){
-        //   spanPass.innerHTML = "El password no es correcto"
-        //   spanEmail.innerHTML = ""
-        //   console.log(e.usuario, e.password);
-        //   return false;}
         else if(e.usuario == var2 && e.password == var1){
           window.location = '../index.html'+ "?name=" + e.nombre; }
       });
@@ -65,14 +64,6 @@ window.addEventListener('load',function(){
     //    spanEmail.innerHTML = "Ingrese un email válido"}
     // else if(password.value.search(rightPass){
     //    spanPass.innerHTML = "Ingrese el password correcto"}
-
-    function correctos(val1,val2){
-      cuentas.forEach(function(e){
-        if(val1=="mili01gm@gmail.com"){
-          alert("ok");
-        }
-      });
-    }
 
     correctUser(email.value);
     correctPassword(password.value,email.value);
