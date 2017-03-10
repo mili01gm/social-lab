@@ -21,7 +21,7 @@ window.addEventListener('load',function(){
         spanEmail.innerHTML = "Ingrese un usuario válido"
         return false;}
 
-      //correctPassword(password.value);
+      correctPassword(password.value);
     }
 
     function correctPassword(param){
@@ -45,9 +45,17 @@ window.addEventListener('load',function(){
     // else if(password.value.search(rightPass){
     //    spanPass.innerHTML = "Ingrese el password correcto"}
 
+    function correctos(val1,val2){
+      cuentas.forEach(function(e){
+        if(val1=="mili01gm@gmail.com"){
+          alert("ok");
+        }
+      });
+    }
 
     correctUser(email.value);
     correctPassword(password.value);
+    //function correctos(email.value,password.value);
   });
 
 
